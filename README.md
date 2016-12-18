@@ -6,6 +6,20 @@ A small library for error handling in express. With Default Api-Errors predefine
 
 `$ npm install --save yaeeh`
 
+### API
+
+``` javascript
+/**
+ * NotImplementedError
+ *
+ * default status code: 501
+ * default error code: ERR_NOT_IMPLEMENTED
+ * default message: This resource is not implemented yet.
+ */
+
+const error = new NotImplementedError();
+```
+
 ### Development
 
 ## TODOs
