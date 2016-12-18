@@ -14,4 +14,4 @@ A small library for error handling in express. With Default Api-Errors predefine
 
 ## License
 
-MIT © [Alexander Braunreuther](http://github.com/SnaptrackDevelopment)
+MIT © [Alexander Braunreuther](https://github.com/BraunreutherA)
