@@ -24,7 +24,7 @@ Every error can be instantiated with a custom message and a custom error code li
  * default error code: ERR_NOT_IMPLEMENTED
  * default message: This resource is not implemented yet.
  */
-const error = new NotImplementedError();
+const notImplementedError = new NotImplementedError();
 
 /**
  * UnauthorizedError
