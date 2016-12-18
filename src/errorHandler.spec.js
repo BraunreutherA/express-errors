@@ -1,6 +1,11 @@
+/* eslint-disable no-underscore-dangle */
 import httpMocks from 'node-mocks-http';
 import ApiError from './ApiError';
+import NotImplementedError from './NotImplementedError';
+import NotFoundError from './NotFoundError';
+import UnauthorizedError from './UnauthorizedError';
 import errorHandler from './handler';
+import * as fixtures from './fixtures';
 
 describe('API Error handling', () => {
   it('Should set the status to 500 and throw error that complains that the error is not an ApiError.', () => {
@@ -22,7 +27,6 @@ describe('API Error handling', () => {
 
     errorHandler(error, null, res, () => {});
 
-    /* eslint-disable no-underscore-dangle */
     const data = res._getData();
     expect(res.statusCode).to.be.equal(404);
     expect(data).to.be.deep.equal({
@@ -30,5 +34,32 @@ describe('API Error handling', () => {
       status: 404,
       message: 'Test error',
     });
+  });
+
+  it('Should send the NotImplemented error as an json object and set the proper status.', () => {
+    const res = httpMocks.createResponse();
+    errorHandler(new NotImplementedError(), null, res, () => {});
+
+    const data = res._getData();
+    expect(res.statusCode).to.be.equal(501);
+    expect(data).to.be.deep.equal(fixtures.NotImplemented);
+  });
+
+  it('Should send the NotFound error as an json object and set the proper status.', () => {
+    const res = httpMocks.createResponse();
+    errorHandler(new NotFoundError(), null, res, () => {});
+
+    const data = res._getData();
+    expect(res.statusCode).to.be.equal(404);
+    expect(data).to.be.deep.equal(fixtures.NotFound);
+  });
+
+  it('Should send the Unauthorized error as an json object and set the proper status.', () => {
+    const res = httpMocks.createResponse();
+    errorHandler(new UnauthorizedError(), null, res, () => {});
+
+    const data = res._getData();
+    expect(res.statusCode).to.be.equal(401);
+    expect(data).to.be.deep.equal(fixtures.Unauthorized);
   });
 });

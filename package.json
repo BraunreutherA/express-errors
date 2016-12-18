@@ -1,7 +1,7 @@
 {
-  "name": "express-errors",
-  "version": "0.1.0",
-  "description": "Error handling for express",
+  "name": "yaeeh",
+  "version": "0.2.0",
+  "description": "yet another express error handler",
   "main": "build/index.js",
   "author": "Alexander Braunreuther <alexander.braunreuther@googlemail.com",
   "license": "MIT",
@@ -22,8 +22,7 @@
     "clean": "rm -rf build",
     "lint": "eslint src test --fix",
     "prebuild": "npm run lint && npm run test && npm run clean",
-    "build": "babel --optional runtime src -d build",
-    "build:dev": "babel --optional runtime src -d build",
+    "build": "babel --optional runtime src -d build && cp -rf ./build/fixtures ./fixtures",
     "test": "mocha './src/**/*.spec.js'",
     "coverage": "NODE_ENV=test nyc --reporter=lcov --reporter=text mocha './src/**/*.spec.js'"
   },
