@@ -2,9 +2,15 @@
 
 A small library for error handling in express. With Default Api-Errors predefined.
 
-## install
+### Installation
 
 `$ npm install --save yaeeh`
+
+### Development
+
+## TODOs
+- add more Errors
+- export responses for test via supertest for example
 
 ## License
 
