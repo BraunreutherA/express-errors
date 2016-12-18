@@ -8,6 +8,10 @@ A small library for error handling in express. With Default Api-Errors predefine
 
 ### API
 
+Error are classes which inherit from the javascript standard error. Stacktrace etc is given as normal.
+
+Errors have the following API: Error(message, code)
+
 ``` javascript
 /**
  * NotImplementedError
