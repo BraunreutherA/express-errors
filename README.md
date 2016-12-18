@@ -6,7 +6,9 @@ A small library for error handling in express. With Default Api-Errors predefine
 
 `$ npm install --save yaeeh`
 
-### API
+### Development
+
+## API
 
 Error are classes which inherit from the javascript standard error. Stacktrace etc is given as normal.
 
@@ -33,8 +35,6 @@ const error = new NotImplementedError();
  */
 const unauthorizedError = new UnauthorizedError(/* message */, /* code */);
 ```
-
-### Development
 
 ## TODOs
 - [ ] add more Errors
