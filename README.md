@@ -9,7 +9,7 @@ A small library for error handling in express. With Default Api-Errors predefine
 ### Development
 
 ## TODOs
-- [] add more Errors
+- [ ] add more Errors
 - [x] export responses for test via supertest for example
 
 ## License
