@@ -1,0 +1,55 @@
+{
+  "name": "express-errors",
+  "version": "0.1.0",
+  "description": "Error handling for express",
+  "main": "build/index.js",
+  "author": "Alexander Braunreuther <alexander.braunreuther@googlemail.com",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BraunreutherA/express-errors"
+  },
+  "bugs": {
+    "url": "https://github.com/BraunreutherA/express-errors/issues"
+  },
+  "homepage": "https://github.com/BraunreutherA/express-errors#readme",
+  "keywords": [
+    "node",
+    "express",
+    "error-handling"
+  ],
+  "scripts": {
+    "clean": "rm -rf build",
+    "lint": "eslint src test --fix",
+    "prebuild": "npm run lint && npm run test && npm run clean",
+    "build": "babel --optional runtime src -d build",
+    "build:dev": "babel --optional runtime src -d build",
+    "test": "mocha './src/**/*.spec.js'",
+    "coverage": "NODE_ENV=test nyc --reporter=lcov --reporter=text mocha './src/**/*.spec.js'"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.2",
+    "babel-eslint": "^7.1.1",
+    "babel-plugin-istanbul": "^3.0.0",
+    "babel-plugin-transform-builtin-extend": "^1.1.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "chai": "^3.5.0",
+    "eslint": "^3.11.1",
+    "eslint-config-airbnb-base": "^10.0.1",
+    "eslint-config-keystone": "^2.3.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-react": "^5.1.1",
+    "isparta": "^4.0.0",
+    "mocha": "^3.2.0",
+    "node-mocks-http": "^1.5.5",
+    "nodemon": "^1.11.0",
+    "nyc": "^10.0.0",
+    "pow-mongoose-fixtures": "^0.3.0",
+    "sinon": "^1.17.6",
+    "sinon-chai": "^2.8.0",
+    "supertest": "^2.0.1",
+    "supertest-as-promised": "^4.0.2"
+  }
+}

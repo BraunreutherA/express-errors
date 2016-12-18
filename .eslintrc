@@ -1,0 +1,28 @@
+{
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "extends": "airbnb-base",
+  "rules": {
+    "import/no-extraneous-dependencies": ["error", {
+      "devDependencies": true,
+      optionalDependencies: false,
+    }],
+    "import/prefer-default-export": "off"
+  },
+  "globals": {
+    "describe": true,
+    "it": true,
+    "expect": true,
+    "stub": true,
+    "before": true,
+    "after": true,
+    "beforeEach": true,
+    "afterEach": true,
+
+
+    "testUser": true,
+    "server": true
+  }
+}
