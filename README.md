@@ -10,7 +10,9 @@ A small library for error handling in express. With Default Api-Errors predefine
 
 Error are classes which inherit from the javascript standard error. Stacktrace etc is given as normal.
 
-Errors have the following API: Error(message, code)
+### Error(message, code)
+
+Every error can be instantiated with a custom message and a custom error code like 'ERR_CUSTOM_ERROR_CODE'. The http number  codes are fixed to the standard http codes.
 
 ``` javascript
 /**
