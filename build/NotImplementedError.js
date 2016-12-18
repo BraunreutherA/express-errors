@@ -16,13 +16,29 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+/**
+ * NotImplementedError
+ *
+ * default status code: 501
+ * default error code: ERR_NOT_IMPLEMENTED
+ * default message: This resource is not implemented yet.
+ */
 var NotImplementedError = function (_ApiError) {
   _inherits(NotImplementedError, _ApiError);
 
-  function NotImplementedError() {
+  function NotImplementedError(message, code) {
     _classCallCheck(this, NotImplementedError);
 
-    return _possibleConstructorReturn(this, (NotImplementedError.__proto__ || Object.getPrototypeOf(NotImplementedError)).call(this, 'This resource is not implemented yet.', 501, 'ERR_NOT_IMPLEMENTED'));
+    /* eslint-disable no-param-reassign */
+    if (!code) {
+      code = 'ERR_NOT_IMPLEMENTED';
+    }
+
+    if (!message) {
+      message = 'This resource is not implemented yet.';
+    }
+
+    return _possibleConstructorReturn(this, (NotImplementedError.__proto__ || Object.getPrototypeOf(NotImplementedError)).call(this, message, 501, code));
   }
 
   return NotImplementedError;
