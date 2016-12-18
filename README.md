@@ -53,6 +53,25 @@ const unauthorizedError = new UnauthorizedError();
  const notFoundError = new NotFoundError();
 ```
 
+###ApiError(message, status, code)
+
+If you need to create completly customized errors with an own http status code you can use the ApiError and extend it or simple create an error with the right parameters.
+
+``` javascript
+/**
+ * ApiError
+ *
+ * This error type is the base for the error handler and can be completly customized.
+ */
+const apiError = new ApiError('My very own Api error.', 123, 'ERR_VERY_OWN');
+
+class SomeError extends ApiError {
+  constructor() {
+    super('An error with fixed parameters.', 400, 'ERR_FIXED_CODE');
+  }
+}
+```
+
 ## TODOs
 - [ ] add more Errors
 - [x] export responses for test via supertest for example
