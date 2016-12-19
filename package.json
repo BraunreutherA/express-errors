@@ -1,18 +1,18 @@
 {
   "name": "yaeeh",
-  "version": "0.4.0",
+  "version": "0.5.1",
   "description": "yet another express error handler",
   "main": "build/index.js",
   "author": "Alexander Braunreuther <alexander.braunreuther@googlemail.com",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BraunreutherA/express-errors"
+    "url": "git+https://github.com/BraunreutherA/yaeeh"
   },
   "bugs": {
-    "url": "https://github.com/BraunreutherA/express-errors/issues"
+    "url": "https://github.com/BraunreutherA/yaeeh/issues"
   },
-  "homepage": "https://github.com/BraunreutherA/express-errors#readme",
+  "homepage": "https://github.com/BraunreutherA/yaeeh#readme",
   "keywords": [
     "node",
     "express",

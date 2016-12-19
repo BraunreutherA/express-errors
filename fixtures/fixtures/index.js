@@ -20,3 +20,9 @@ var NotImplemented = exports.NotImplemented = {
   status: 501,
   message: 'This resource is not implemented yet.'
 };
+
+var BadRequest = exports.BadRequest = {
+  code: 'ERR_BAD_REQUREST',
+  status: 400,
+  message: 'Bad request.'
+};

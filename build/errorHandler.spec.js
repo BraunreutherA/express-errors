@@ -20,6 +20,10 @@ var _UnauthorizedError = require('./UnauthorizedError');
 
 var _UnauthorizedError2 = _interopRequireDefault(_UnauthorizedError);
 
+var _BadRequestError = require('./BadRequestError');
+
+var _BadRequestError2 = _interopRequireDefault(_BadRequestError);
+
 var _handler = require('./handler');
 
 var _handler2 = _interopRequireDefault(_handler);
@@ -32,6 +36,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/* eslint-disable no-underscore-dangle */
 describe('API Error handling', function () {
   it('Should set the status to 500 and throw error that complains that the error is not an ApiError.', function () {
     var error = new Error('Test error');
@@ -87,4 +92,13 @@ describe('API Error handling', function () {
     expect(res.statusCode).to.be.equal(401);
     expect(data).to.be.deep.equal(fixtures.Unauthorized);
   });
-}); /* eslint-disable no-underscore-dangle */
+
+  it('Should send the BadRequest error as an json object and set the proper status.', function () {
+    var res = _nodeMocksHttp2.default.createResponse();
+    (0, _handler2.default)(new _BadRequestError2.default(), null, res, function () {});
+
+    var data = res._getData();
+    expect(res.statusCode).to.be.equal(400);
+    expect(data).to.be.deep.equal(fixtures.BadRequest);
+  });
+});

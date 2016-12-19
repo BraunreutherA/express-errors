@@ -4,6 +4,7 @@ import ApiError from './ApiError';
 import NotImplementedError from './NotImplementedError';
 import NotFoundError from './NotFoundError';
 import UnauthorizedError from './UnauthorizedError';
+import BadRequestError from './BadRequestError';
 import errorHandler from './handler';
 import * as fixtures from './fixtures';
 
@@ -61,5 +62,14 @@ describe('API Error handling', () => {
     const data = res._getData();
     expect(res.statusCode).to.be.equal(401);
     expect(data).to.be.deep.equal(fixtures.Unauthorized);
+  });
+
+  it('Should send the BadRequest error as an json object and set the proper status.', () => {
+    const res = httpMocks.createResponse();
+    errorHandler(new BadRequestError(), null, res, () => {});
+
+    const data = res._getData();
+    expect(res.statusCode).to.be.equal(400);
+    expect(data).to.be.deep.equal(fixtures.BadRequest);
   });
 });

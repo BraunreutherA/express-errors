@@ -15,3 +15,9 @@ export const NotImplemented = {
   status: 501,
   message: 'This resource is not implemented yet.',
 };
+
+export const BadRequest = {
+  code: 'ERR_BAD_REQUREST',
+  status: 400,
+  message: 'Bad request.',
+};

@@ -17,7 +17,7 @@ Error are classes which inherit from the javascript standard error. Stacktrace e
 Every error can be instantiated with a custom message and a custom error code like 'ERR_CUSTOM_ERROR_CODE'. The http number  codes are fixed to the standard http codes.
 
 ``` javascript
-/** 
+/**
  * Every error can have alternative messages, alternative error codes or both.
  *
  * const someError = new <defined>Error('alternative message');
@@ -51,6 +51,15 @@ const unauthorizedError = new UnauthorizedError();
  * default message: This requested resource was not found.
  */
  const notFoundError = new NotFoundError();
+
+ /**
+  * BadRequestError
+  *
+  * default status code: 400
+  * default error code: ERR_BAD_REQUREST
+  * default message: Bad request.
+  */
+ const badRequestError = new BadRequestError();
 ```
 
 ## TODOs
