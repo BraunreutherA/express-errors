@@ -1,6 +1,6 @@
 {
   "name": "yaeeh",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "yet another express error handler",
   "main": "build/index.js",
   "author": "Alexander Braunreuther <alexander.braunreuther@googlemail.com",
