@@ -5,4 +5,11 @@ import NotImplementedError from './NotImplementedError';
 import UnauthorizedError from './UnauthorizedError';
 import BadRequestError from './BadRequestError';
 
-export { handler, ApiError, NotFoundError, NotImplementedError, UnauthorizedError, BadRequestError };
+export {
+  handler,
+  ApiError,
+  NotFoundError,
+  NotImplementedError,
+  UnauthorizedError,
+  BadRequestError,
+};
