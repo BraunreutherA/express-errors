@@ -9,17 +9,19 @@ import errorHandler from './handler';
 import * as fixtures from './fixtures';
 
 describe('API Error handling', () => {
-  it('Should set the status to 500 and throw error that complains that the error is not an ApiError.', () => {
+  it('Should set the status to 500 and throw an internal server error.', () => {
     const error = new Error('Test error');
-    const next = (errorObject) => {
-      expect(errorObject).to.be.deep.equal({
-        code: 'ERR_NOT_VALID_ERROR_FORMAT',
-        status: 500,
-        message: 'Internal server error. Please contact the backend team.',
-      });
-    };
+    const res = httpMocks.createResponse();
 
-    errorHandler(error, null, null, next);
+    errorHandler(error, null, res, () => {});
+
+    const data = res._getData();
+    expect(res.statusCode).to.be.equal(500);
+    expect(data).to.be.deep.equal({
+      code: 'ERR_INTERNAL',
+      status: 500,
+      message: 'Test error',
+    });
   });
 
   it('Should send the error as an json object and set the proper status.', () => {

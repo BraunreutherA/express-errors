@@ -10,12 +10,13 @@ var _ApiError2 = _interopRequireDefault(_ApiError);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/* eslint-disable no-unused-vars */
 exports.default = function (error, req, res, next) {
   if (!(error instanceof _ApiError2.default)) {
-    next({
-      code: 'ERR_NOT_VALID_ERROR_FORMAT',
+    res.status(500).send({
+      code: 'ERR_INTERNAL',
       status: 500,
-      message: 'Internal server error. Please contact the backend team.'
+      message: error.message
     });
   } else {
     res.status(error.status).send({

@@ -38,17 +38,19 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /* eslint-disable no-underscore-dangle */
 describe('API Error handling', function () {
-  it('Should set the status to 500 and throw error that complains that the error is not an ApiError.', function () {
+  it('Should set the status to 500 and throw an internal server error.', function () {
     var error = new Error('Test error');
-    var next = function next(errorObject) {
-      expect(errorObject).to.be.deep.equal({
-        code: 'ERR_NOT_VALID_ERROR_FORMAT',
-        status: 500,
-        message: 'Internal server error. Please contact the backend team.'
-      });
-    };
+    var res = _nodeMocksHttp2.default.createResponse();
 
-    (0, _handler2.default)(error, null, null, next);
+    (0, _handler2.default)(error, null, res, function () {});
+
+    var data = res._getData();
+    expect(res.statusCode).to.be.equal(500);
+    expect(data).to.be.deep.equal({
+      code: 'ERR_INTERNAL',
+      status: 500,
+      message: 'Test error'
+    });
   });
 
   it('Should send the error as an json object and set the proper status.', function () {

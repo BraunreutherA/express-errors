@@ -1,11 +1,12 @@
 import ApiError from './ApiError';
 
+/* eslint-disable no-unused-vars */
 export default (error, req, res, next) => {
   if (!(error instanceof ApiError)) {
-    next({
-      code: 'ERR_NOT_VALID_ERROR_FORMAT',
+    res.status(500).send({
+      code: 'ERR_INTERNAL',
       status: 500,
-      message: 'Internal server error. Please contact the backend team.',
+      message: error.message,
     });
   } else {
     res.status(error.status).send({
